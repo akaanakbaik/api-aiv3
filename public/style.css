@@ -1,27 +1,36 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
-body { background:#0d1117; color:#c9d1d9; line-height:1.6; padding:20px; }
-header { text-align:center; margin:30px 0; }
-h1 { font-size:2.5rem; color:#58a6ff; }
-h1 span { color:#8b949e; font-size:1.5rem; }
-main { max-width:900px; margin:0 auto; }
+body { background:#0d1117; color:#c9d1d9; padding:20px; }
+header h1 { text-align:center; font-size:2.8rem; color:#58a6ff; margin:30px 0; }
+header span { color:#8b949e; font-size:1.6rem; }
+main { max-width:960px; margin:0 auto; }
+
 .input-card, .result-item, .example-card, .contact-card {
   background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px; margin:20px 0;
 }
-label { font-size:1.3rem; color:#58a6ff; display:block; margin-bottom:10px; }
-#query { width:100%; height:120px; background:#0d1117; color:#c9d1d9; border:1px solid #30363d; border-radius:8px; padding:12px; font-size:1rem; }
+label { font-size:1.4rem; color:#58a6ff; display:block; margin-bottom:8px; }
+#model { width:100%; padding:12px; background:#0d1117; color:#c9d1d9; border:1px solid #30363d; border-radius:8px; margin-bottom:12px; font-size:1rem; }
+#query { width:100%; height:130px; background:#0d1117; color:#c9d1d9; border:1px solid #30363d; border-radius:8px; padding:14px; font-size:1rem; resize:vertical; }
 .buttons { margin-top:12px; display:flex; gap:12px; }
-button { padding:10px 20px; background:#238636; color:white; border:none; border-radius:6px; cursor:pointer; font-weight:bold; }
+button { padding:12px 24px; background:#238636; color:white; border:none; border-radius:8px; cursor:pointer; font-weight:bold; font-size:1rem; }
 button#clear { background:#da3633; }
 button:hover { opacity:0.9; }
-.result-item { background:#000; color:#39ff14; padding:16px; border-radius:8px; font-family: 'Courier New', monospace; white-space:pre-wrap; position:relative; }
-.result-item .meta { color:#8b949e; font-size:0.8rem; margin-bottom:10px; }
-.copy-btn { position:absolute; top:10px; right:10px; background:#30363d; padding:5px 10px; font-size:0.8rem; }
-.example-card pre { background:#0d1117; padding:15px; border-radius:8px; overflow-x:auto; }
+
+.loading { text-align:center; margin:20px 0; color:#58a6ff; }
+.spinner { border:4px solid #30363d; border-top:4px solid #58a6ff; border-radius:50%; width:40px; height:40px; animation:spin 1s linear infinite; margin:0 auto 10px; }
+@keyframes spin { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
+.dots::after { content:''; animation: dots 1.5s infinite; }
+@keyframes dots { 0%,20% { content:'' } 40% { content:'.' } 60% { content:'..' } 80%,100% { content:'...' } }
+
+.result-item { background:#000; color:#39ff14; padding:18px; border-radius:8px; font-family:'Courier New',monospace; position:relative; white-space:pre-wrap; word-wrap:break-word; }
+.result-item .meta { color:#8b949e; font-size:0.85rem; margin-bottom:10px; display:block; background:#161b22; padding:8px; border-radius:4px; }
+.copy-btn { position:absolute; top:10px; right:10px; background:#30363d; padding:6px 12px; font-size:0.8rem; border-radius:4px; }
+.example-card pre { background:#0d1117; padding:16px; border-radius:8px; overflow-x:auto; font-size:0.9rem; }
 .contact-card { text-align:center; font-size:1.1rem; }
-footer { text-align:center; margin:50px 0 20px; color:#8b949e; font-size:0.9rem; }
-a { color:#58a6ff; text-decoration:none; }
-a:hover { text-decoration:underline; }
+footer { text-align:center; margin:60px 0 20px; color:#8b949e; }
+
+.hidden { display:none; }
+a { color:#58a6ff; }
 @media (max-width:600px) {
-  h1 { font-size:2rem; }
   .buttons { flex-direction:column; }
+  header h1 { font-size:2.2rem; }
 }
