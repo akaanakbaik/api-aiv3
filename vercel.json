@@ -8,5 +8,8 @@
   "routes": [
     { "src": "/api/ai", "dest": "/api/ai.js" },
     { "src": "/(.*)", "dest": "/public/$1" }
-  ]
+  ],
+  "functions": {
+    "api/ai.js": { "maxDuration": 60 }
+  }
 }
