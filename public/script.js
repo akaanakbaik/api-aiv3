@@ -25,14 +25,26 @@ connectWS();
 function showResult(data) {
   const div = document.createElement('div');
   div.className = 'result-item';
+
+  const citationsHtml = data.citations?.length > 0
+    ? `<br><small>Sumber: \( {data.citations.map(c => `<a href=" \){c.url}" target="_blank">${c.title}</a>`).join(', ')}</small>`
+    : '';
+
   const meta = `
 <span class="meta">
-Model: \( {data.model} | Latency: \){data.latency}ms | Time: ${new Date(data.timestamp).toLocaleString('id-ID')}
+Model: \( {data.metadata.model} | Mode: \){data.metadata.mode} | 
+Latency: ${data.metadata.latency_ms}ms | 
+${new Date(data.metadata.timestamp).toLocaleString('id-ID')}
+\( {data.metadata.citations_count > 0 ? ` | \){data.metadata.citations_count} sumber` : ''}
 </span>
-<button class="copy-btn" onclick="copyText(this)">Copy</button>
-<pre>${data.response}</pre>`;
+<button class="copy-btn" onclick="copyLog(this)">Copy Log</button>
+<pre>${data.response}</pre>
+${citationsHtml}
+  `;
+
   div.innerHTML = meta;
   resultsDiv.prepend(div);
+  div.scrollIntoView({ behavior: 'smooth' });
 }
 
 execBtn.onclick = () => {
