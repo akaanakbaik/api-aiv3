@@ -1,19 +1,14 @@
 {
   "name": "ai-api-by-aka",
   "version": "1.0.0",
-  "description": "Api's AI by aka - Microsoft Copilot WebSocket Scraper",
+  "description": "Api's AI by aka - Microsoft Copilot Real-time",
   "main": "api/ai.js",
-  "scripts": {
-    "start": "node api/ai.js"
-  },
+  "scripts": { "start": "node api/ai.js" },
   "dependencies": {
     "ws": "^8.18.0",
     "express": "^4.21.1",
     "axios": "^1.7.7",
-    "uuid": "^10.0.0",
-    "form-data": "^4.0.0"
+    "uuid": "^10.0.0"
   },
-  "engines": {
-    "node": ">=22"
-  }
+  "engines": { "node": ">=22" }
 }
